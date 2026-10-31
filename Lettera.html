@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invito 18 Anni</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Supabase JS Client CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <!-- Il tuo stile CSS personalizzato -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-neutral-950 text-neutral-100 flex items-center justify-center min-h-screen p-4">
+
+  <div class="max-w-md w-full bg-neutral-900 border border-amber-500/30 rounded-2xl p-6 shadow-2xl text-center relative overflow-hidden">
+    
+    <!-- Intestazione -->
+    <div class="mb-6">
+      <h1 class="text-3xl font-serif text-amber-400 tracking-wide">18</h1>
+      <p class="text-xs uppercase tracking-widest text-neutral-400 mt-1">Festa di Compleanno</p>
+    </div>
+
+    <!-- Nome Ospite -->
+    <div class="mb-6">
+      <h2 id="invitato-nome" class="text-2xl font-bold text-neutral-100">Caricamento invito...</h2>
+      <p class="text-sm text-neutral-400 mt-2">
+        Il grande giorno sta arrivando ed è impossibile festeggiare senza di te. Sei ufficialmente invitato al mio diciottesimo compleanno!
+      </p>
+    </div>
+
+    <!-- Dettagli della Festa (Inizialmente sfocato se non ha ancora risposto "SI") -->
+    <div id="details-box" class="sfocato bg-neutral-950/60 border border-amber-500/20 rounded-xl p-4 mb-6 text-left space-y-3 transition-all duration-500">
+      <div class="flex items-center space-x-3 text-sm text-neutral-300">
+        <span>📅 Data: 20 Giugno 2026</span>
+      </div>
+      <div class="flex items-center space-x-3 text-sm text-neutral-300">
+        <span>⏰ Ore: 20:30</span>
+      </div>
+      <div class="flex items-center space-x-3 text-sm text-neutral-300">
+        <span>📍 Luogo: Villa dei Sogni, Roma</span>
+      </div>
+      <p class="text-xs text-amber-400/80 pt-2 border-t border-neutral-800">
+        * Conferma con "Sì, ci sarò!" per sbloccare data e luogo.
+      </p>
+    </div>
+
+    <!-- Messaggio di conferma stato -->
+    <div id="msg-blocco" class="mb-6 text-sm">
+      Conferma la tua presenza:
+    </div>
+
+    <!-- Pulsanti di Risposta -->
+    <div class="flex gap-3 justify-center">
+      <button id="btn-si" class="flex-1 bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold py-3 px-4 rounded-xl transition duration-200 shadow-lg shadow-amber-500/20">
+        SÌ, CI SARÒ! 🎉
+      </button>
+      <button id="btn-no" class="flex-1 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-semibold py-3 px-4 rounded-xl transition duration-200 border border-neutral-700">
+        NO, NON POSSO 😢
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Script principale della lettera -->
+  <script src="js/lettera.js"></script>
+</body>
+</html>

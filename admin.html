@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Gestione Invitati 18 Anni</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-neutral-950 text-white min-h-screen font-sans p-4 sm:p-8">
+
+  <div class="max-w-4xl mx-auto space-y-6">
+    
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-stone-800 pb-4 gap-4">
+      <div>
+        <h1 class="text-2xl font-serif font-bold text-amber-400">Pannello Gestione Invitati</h1>
+        <p class="text-stone-400 text-xs">Aggiungi gli ospiti per categoria e copia i link personalizzati</p>
+      </div>
+      <div id="status-badge" class="flex items-center gap-2 bg-stone-900 border border-stone-800 px-3 py-1.5 rounded-lg text-xs">
+        <span class="w-2 h-2 rounded-full bg-emerald-500" id="status-dot"></span>
+        <span id="status-text" class="text-stone-300">Connesso a Supabase</span>
+      </div>
+    </div>
+
+    <!-- Form per aggiungere un invitato con Categoria -->
+    <div class="bg-stone-900 border border-stone-800 rounded-xl p-5 shadow-xl">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-amber-400 mb-4">Aggiungi Nuovo Invitato</h2>
+      <form id="form-invitato" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <input type="text" id="nome" placeholder="Nome" required class="bg-neutral-950 border border-stone-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+        <input type="text" id="cognome" placeholder="Cognome" required class="bg-neutral-950 border border-stone-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+        <select id="categoria" class="bg-neutral-950 border border-stone-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-amber-500">
+          <option value="Amici">Amici 🎉</option>
+          <option value="Amici Scuola">Amici Scuola 🎉</option>
+          <option value="Amici DopoScuola">Amici DopoScuola 🎉</option>
+          <option value="Amici Piscina">Amici Piscina 🎉</option>
+          <option value="Famiglia">Famiglia 🏠</option>
+          <option value="Parenti">Parenti 🍷</option>
+          <option value="Conoscenti">Conoscenti 🤝</option>
+        </select>
+        <button type="submit" class="sm:col-span-2 lg:col-span-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-stone-950 font-bold py-2.5 rounded-lg text-sm tracking-wider uppercase transition-transform active:scale-98 cursor-pointer shadow-md">
+          Genera e Salva Invito ✉️
+        </button>
+      </form>
+    </div>
+
+    <!-- Tabella Invitati -->
+    <div class="bg-stone-900 border border-stone-800 rounded-xl overflow-hidden shadow-xl">
+      <div class="p-4 border-b border-stone-800 flex justify-between items-center">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-stone-300">Lista Invitati</h2>
+        <span id="counter-invitati" class="text-xs text-stone-500">0 invitati</span>
+      </div>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead class="bg-neutral-950 text-stone-400 uppercase tracking-wider border-b border-stone-800">
+            <tr>
+              <th class="p-3">Nome e Cognome</th>
+              <th class="p-3">Categoria</th>
+              <th class="p-3">Stato Risposta</th>
+              <th class="p-3 text-right">Link Personalizzato</th>
+            </tr>
+          </thead>
+          <tbody id="tabella-invitati" class="divide-y divide-stone-800/50">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
